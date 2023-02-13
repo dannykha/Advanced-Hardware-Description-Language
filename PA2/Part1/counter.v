@@ -14,16 +14,17 @@ module counter(Clock, Reset_n, Q, rollover);
 	always @(posedge Clock or negedge Reset_n)
 	begin
 		
-		if (!Reset_n)
+		if(!Reset_n) begin
 			Q <= 1'd0;
-		else begin
+			rollover <= 0;
+		end else if(Q == k - 1) begin
+			Q <= 0;
+			rollover <= 0;
+		else if(Q == k - 2) begin
 			Q <= Q + 1'b1;
-			if (Q == k - 1) begin
-				Q <= 1'd0;
-				rollover <= 1'b1;
-			end else begin
-				rollover <= 1'b0;
-			end
+			rollover <= 1'b1;
 		end
+		else
+			Q <= Q + 1'b1;
 	end
 endmodule
