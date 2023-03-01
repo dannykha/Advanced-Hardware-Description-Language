@@ -163,16 +163,12 @@ module pipeline(
 			result <= {cout_stg4[3], fa_stg4[3:0], reg_fa_stg3[0], reg_p1_stg3[0], reg_p0_stg3[0]};
 		end 
 	end
-	
 endmodule
-
 
 module fa(
 	input a, b, c_in,
 	output c_out, s
 );
-
 	assign c_out = (a & b) | (b & c_in) | (c_in & a);
 	assign s = a ^ b ^ c_in;
-
 endmodule
