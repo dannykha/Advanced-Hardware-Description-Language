@@ -55,16 +55,16 @@ module accumulate(
             a_reg <= 8'b0;
             overflow <= 1'b0;
             c_out <= 1'b0;
-				s_reg <= 8'b0;
+			s_reg <= 8'b0;
         end else begin
-				s_reg <= accum_wire;
+			s_reg <= accum_wire;
             c_out <= c_out_temp;
-				a_reg <= in;
-				if ((a_reg[7] == 0 && accum_wire[7] == 1 && s_reg[7] == 0) || (a_reg[7] == 1 && accum_wire[7] == 0 && s_reg[7] == 1)) begin
-					overflow <= 1'b1;
-				end else begin
-					overflow <= 1'b0;
-				end
+			a_reg <= in;
+			if ((a_reg[7] == 0 && accum_wire[7] == 1 && s_reg[7] == 0) || (a_reg[7] == 1 && accum_wire[7] == 0 && s_reg[7] == 1)) begin
+				overflow <= 1'b1;
+			end else begin
+				overflow <= 1'b0;
+			end
         end
     end
 endmodule
