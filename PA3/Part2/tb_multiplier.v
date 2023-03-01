@@ -15,34 +15,14 @@ module tb_multiplier();
 			rst = 0;
 			a_temp = 4'b0000;
 			b_temp = 4'b0000;
-			#10 rst = 1;
-			a_temp = 4'b0001;
-			b_temp = 4'b0001;
-			#10
-			a_temp = 4'b0010;
-			b_temp = 4'b0010;
-			#10
-			a_temp = 4'b0011;
-			b_temp = 4'b0011;
-			#10
-			a_temp = 4'b0100;
-			b_temp = 4'b0100;
-			#10
-			a_temp = 4'b0101;
-			b_temp = 4'b0101;
-			#10
-			a_temp = 4'b0110;
-			b_temp = 4'b0110;
-			#10
-			a_temp = 4'b0111;
-			b_temp = 4'b0111;
-			#10
-			a_temp = 4'b1000;
-			b_temp = 4'b1000;
-			#10
-			a_temp = 4'b1001;
-			b_temp = 4'b1001;
-			#50
+			#10;
+			rst = 1;
+			for (i = 0; i <= 15; i = i + 1) begin
+				a_temp = a_temp + 1'b1;
+				b_temp = b_temp + 1'b1;
+				#10;
+			end
+			#50;
 			rst = 0;
 		end
 		always #5 clk = ~clk;
