@@ -23,13 +23,6 @@ module EE427_PA4(
 	input 		     [9:0]		SW
 );
 
-	// Actually even assigning these two regs to 0 does not work. Needs a reset switch in the always@(*) begin
-	// portion with a extra statement for SW[9] to initialize everything to 0?
-	// Currently when turning on with the board everything is set to don't care values which on the board is
-	// all lights active so FF FF FF and all LEDR on.
-	// Everything still works like normal its just because of the way the cirucit is designed
-	// everything is set kind of weird in the beginning
-
 	reg [31:0] Op1;
 	reg [31:0] Op2;
 	
